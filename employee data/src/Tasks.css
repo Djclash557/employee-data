@@ -259,3 +259,42 @@
         right: 0 !important;
     }
 }
+
+@media (max-width: 500px) {
+    .tasks-card {
+        width: 100vw !important;
+        min-width: 0 !important;
+        max-width: 100vw !important;
+        padding: 8px 2vw !important;
+        gap: 8px !important;
+        min-height: 0 !important;
+    }
+
+    .tasks-header h2 {
+        font-size: 1.1rem !important;
+    }
+
+    .tasks-summary {
+        font-size: 0.98rem !important;
+        gap: 8px !important;
+    }
+
+    .tasks-list li {
+        font-size: 1rem !important;
+        padding: 8px 0 !important;
+        gap: 6px !important;
+    }
+
+    .tasks-input,
+    .tasks-edit-input {
+        font-size: 0.95rem !important;
+        padding: 6px 8px !important;
+    }
+
+    .tasks-add-btn,
+    .tasks-save-btn,
+    .tasks-delete-btn {
+        font-size: 0.95rem !important;
+        padding: 6px 10px !important;
+    }
+}

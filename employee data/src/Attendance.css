@@ -197,3 +197,45 @@
         font-size: 0.95rem;
     }
 }
+
+@media (max-width: 500px) {
+    .attendance-card {
+        width: 100vw !important;
+        min-width: 0 !important;
+        max-width: 100vw !important;
+        padding: 8px 2vw !important;
+        gap: 8px !important;
+        min-height: 0 !important;
+    }
+
+    .attendance-header h2 {
+        font-size: 1.1rem !important;
+    }
+
+    .attendance-summary {
+        font-size: 0.98rem !important;
+        gap: 8px !important;
+    }
+
+    .attendance-table-wrapper {
+        width: 100vw !important;
+        overflow-x: auto !important;
+    }
+
+    .attendance-table {
+        min-width: 320px !important;
+        font-size: 0.95rem !important;
+    }
+
+    .attendance-table th,
+    .attendance-table td {
+        padding: 6px 2px !important;
+        font-size: 0.93rem !important;
+    }
+
+    .attendance-btn {
+        font-size: 0.95rem !important;
+        padding: 6px 10px !important;
+        min-width: 60px !important;
+    }
+}

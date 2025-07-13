@@ -2,3 +2,9 @@
 @import url('./Login.css');
 
 /* You can override or add specific styles for SignUp here if needed */
+@media (max-width: 500px) {
+    .signup-btn {
+        font-size: 0.95rem !important;
+        padding: 8px 10px !important;
+    }
+}

@@ -397,20 +397,38 @@
 
 @media (max-width: 500px) {
     .login-card {
-        margin: 0 1vw;
-        padding: 0;
-        width: 100vw;
-        height: auto;
+        width: 100vw !important;
+        min-width: 0 !important;
+        max-width: 100vw !important;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 8px 2vw !important;
+        gap: 8px !important;
     }
 
     .login-left,
     .login-right {
-        padding: 18px 6px 12px 6px;
+        padding: 12px 2vw !important;
     }
 
+    .login-logo {
+        font-size: 1.1rem !important;
+    }
+
+    .login-form label {
+        font-size: 0.95rem !important;
+    }
+
+    .login-form input[type="email"],
+    .login-form input[type="password"] {
+        font-size: 0.95rem !important;
+        padding: 8px 8px !important;
+    }
+
+    .login-btn,
     .signup-btn {
-        padding: 8px 10px;
-        font-size: 0.98rem;
+        font-size: 0.95rem !important;
+        padding: 8px 10px !important;
     }
 }
 
