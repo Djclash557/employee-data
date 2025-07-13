@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./EmployeeList.css";
 import employeeIllustration from './assets/image11.png';
+import { API_BASE_URL } from "./config";
 
 const EmployeeList = () => {
     const [employees, setEmployees] = useState([]);
@@ -18,7 +19,7 @@ const EmployeeList = () => {
             setLoading(true);
             const token = localStorage.getItem("token");
             if (!token) return;
-            const res = await fetch("http://localhost:5000/api/employees", {
+            const res = await fetch(`${API_BASE_URL}/api/employees`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const data = await res.json();
@@ -34,7 +35,7 @@ const EmployeeList = () => {
         if (!emp || !emp._id) return;
         const token = localStorage.getItem("token");
         if (!token) return;
-        const res = await fetch(`http://localhost:5000/api/employees/${emp._id}`, {
+        const res = await fetch(`${API_BASE_URL}/api/employees/${emp._id}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}` },
         });
@@ -49,7 +50,7 @@ const EmployeeList = () => {
     const handleAdd = async () => {
         const token = localStorage.getItem("token");
         if (!token) return;
-        const res = await fetch("http://localhost:5000/api/employees", {
+        const res = await fetch(`${API_BASE_URL}/api/employees`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -79,7 +80,7 @@ const EmployeeList = () => {
         if (!emp || !emp._id) return;
         const token = localStorage.getItem("token");
         if (!token) return;
-        const res = await fetch(`http://localhost:5000/api/employees/${emp._id}`, {
+        const res = await fetch(`${API_BASE_URL}/api/employees/${emp._id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
