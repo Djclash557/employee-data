@@ -157,6 +157,24 @@
     line-height: 1;
 }
 
+/* Add a toggle button for mobile */
+.sidebar-toggle-btn {
+    display: none;
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    z-index: 11000;
+    background: #6a8dff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 2rem;
+    box-shadow: 0 2px 8px #0002;
+    cursor: pointer;
+}
+
 @media (max-width: 700px) {
     .sidebar {
         display: none !important;
@@ -164,5 +182,43 @@
 
     .sidebar.sidebar-drawer {
         display: flex !important;
+        width: 80vw;
+        max-width: 320px;
+        min-width: unset;
+    }
+
+    .sidebar-toggle-btn {
+        display: block;
+    }
+}
+
+@media (max-width: 500px) {
+    .sidebar.sidebar-drawer {
+        width: 95vw;
+        max-width: 95vw;
+    }
+
+    .sidebar-logo {
+        font-size: 1rem;
+        margin-left: 12px;
+        margin-bottom: 20px;
+    }
+
+    .sidebar-search input {
+        font-size: 0.9rem;
+        padding: 6px 30px 6px 10px;
+    }
+
+    .sidebar-nav li a {
+        font-size: 0.95rem;
+        padding: 10px 14px;
+    }
+
+    .sidebar-toggle-btn {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 1.3rem !important;
+        top: 10px !important;
+        left: 10px !important;
     }
 }

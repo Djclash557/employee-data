@@ -25,29 +25,11 @@ const MainLayout = ({ children }) => {
       <Sidebar mobileOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
       {isMobile && (
         <button
-          className="sidebar-hamburger"
+          className="sidebar-toggle-btn"
           aria-label="Open sidebar"
           onClick={() => setMobileOpen(true)}
-          style={{
-            position: 'fixed',
-            top: 18,
-            left: 18,
-            zIndex: 10000,
-            background: 'rgba(90,124,255,0.95)',
-            border: 'none',
-            borderRadius: '8px',
-            width: 44,
-            height: 44,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#fff',
-            fontSize: 28,
-            boxShadow: '0 2px 8px #6366f122',
-            cursor: 'pointer',
-          }}
         >
-          <span style={{ fontSize: 28, lineHeight: 1 }}>☰</span>
+          ☰
         </button>
       )}
       <div className="centered-page" style={{ marginLeft: isMobile ? 0 : 220, width: "100%", minHeight: "100vh" }}>
