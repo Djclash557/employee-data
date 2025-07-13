@@ -215,10 +215,12 @@
     }
 
     .sidebar-toggle-btn {
-        width: 32px !important;
-        height: 32px !important;
-        font-size: 1.3rem !important;
-        top: 10px !important;
-        left: 10px !important;
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 1.1rem !important;
+        top: 6px !important;
+        left: 6px !important;
+        z-index: 12000 !important;
+        box-shadow: 0 1px 4px #0002 !important;
     }
 }
