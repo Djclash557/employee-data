@@ -20,8 +20,3 @@ app.get('/', (req, res) => {
     res.send('Employee Management System API is running.');
 });
 
-<<<<<<< HEAD
-module.exports = app; 
-=======
-module.exports = app; 
->>>>>>> 3f9e046d97113d5edf7525fd44a0508ae59b6aa6
