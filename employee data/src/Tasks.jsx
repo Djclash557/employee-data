@@ -17,7 +17,7 @@ const Tasks = () => {
 
     // Fetch tasks from backend
     useEffect(() => {
-        if (loading || !user) return;
+        if (loading || !user || !user._id) return;
         const fetchTasks = async () => {
             try {
                 const res = await fetch(`${API_BASE_URL}/api/tasks?userId=${user._id}`, {
