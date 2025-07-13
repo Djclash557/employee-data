@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+import { API_BASE_URL } from "./config";
 
 export const UserContext = createContext();
 
@@ -11,7 +12,7 @@ export const UserProvider = ({ children }) => {
             try {
                 const token = localStorage.getItem("token");
                 if (token) {
-                    const response = await fetch("http://localhost:5000/api/users/me", {
+                    const response = await fetch(`${API_BASE_URL}/api/users/me`, {
                         headers: {
                             Authorization: `Bearer ${token}`,
                             'Content-Type': 'application/json'
