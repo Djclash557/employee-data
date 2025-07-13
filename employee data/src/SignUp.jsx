@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import "./SignUp.css";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "./UserContext";
+import { API_BASE_URL } from "./config";
 
 const SignUp = () => {
     const [email, setEmail] = useState("");
@@ -25,7 +26,7 @@ const SignUp = () => {
         }
         setLoading(true);
         try {
-            const res = await fetch("http://localhost:5000/api/users/register", {
+            const res = await fetch(`${API_BASE_URL}/api/users/register`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name: email.split("@")[0], email, password, role })
@@ -33,7 +34,7 @@ const SignUp = () => {
             const data = await res.json();
             if (!res.ok) throw new Error(data.error || "Registration failed");
             // Optionally, log the user in after registration
-            const loginRes = await fetch("http://localhost:5000/api/users/login", {
+            const loginRes = await fetch(`${API_BASE_URL}/api/users/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password })
