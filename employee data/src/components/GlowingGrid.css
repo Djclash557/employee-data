@@ -1,0 +1,260 @@
+.glowing-grid-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.glowing-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Grid Variant */
+.glowing-grid--grid {
+    background-image:
+        linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridPulse 3s ease-in-out infinite;
+}
+
+.glowing-grid--grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 25px 25px;
+    animation: gridPulse 2s ease-in-out infinite reverse;
+}
+
+/* Lines Variant */
+.glowing-grid--lines {
+    background-image:
+        linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.1) 50%, transparent 100%);
+    background-size: 200px 100%;
+    animation: linesMove 4s linear infinite;
+}
+
+.glowing-grid--lines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(0deg, transparent 0%, rgba(59, 130, 246, 0.08) 50%, transparent 100%);
+    background-size: 100% 150px;
+    animation: linesMove 3s linear infinite reverse;
+}
+
+/* Dots Variant */
+.glowing-grid--dots {
+    background-image: radial-gradient(circle, rgba(59, 130, 246, 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: dotsPulse 2.5s ease-in-out infinite;
+}
+
+.glowing-grid--dots::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(59, 130, 246, 0.2) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: dotsPulse 3.5s ease-in-out infinite reverse;
+}
+
+/* Hexagon Variant */
+.glowing-grid--hexagon {
+    background-image:
+        linear-gradient(60deg, rgba(59, 130, 246, 0.1) 25%, transparent 25.5%, transparent 75%, rgba(59, 130, 246, 0.1) 75%, rgba(59, 130, 246, 0.1)),
+        linear-gradient(120deg, rgba(59, 130, 246, 0.1) 25%, transparent 25.5%, transparent 75%, rgba(59, 130, 246, 0.1) 75%, rgba(59, 130, 246, 0.1));
+    background-size: 60px 60px;
+    animation: hexagonPulse 4s ease-in-out infinite;
+}
+
+/* Intensity Levels */
+.glowing-grid--low {
+    opacity: 0.2 !important;
+}
+
+.glowing-grid--medium {
+    opacity: 0.4 !important;
+}
+
+.glowing-grid--high {
+    opacity: 0.6 !important;
+}
+
+/* Color Schemes */
+.glowing-grid--blue {
+    --grid-color: rgba(59, 130, 246, 0.3);
+    --grid-color-light: rgba(59, 130, 246, 0.1);
+    --grid-color-dark: rgba(59, 130, 246, 0.5);
+}
+
+.glowing-grid--green {
+    --grid-color: rgba(34, 197, 94, 0.3);
+    --grid-color-light: rgba(34, 197, 94, 0.1);
+    --grid-color-dark: rgba(34, 197, 94, 0.5);
+}
+
+.glowing-grid--purple {
+    --grid-color: rgba(147, 51, 234, 0.3);
+    --grid-color-light: rgba(147, 51, 234, 0.1);
+    --grid-color-dark: rgba(147, 51, 234, 0.5);
+}
+
+.glowing-grid--cyan {
+    --grid-color: rgba(6, 182, 212, 0.3);
+    --grid-color-light: rgba(6, 182, 212, 0.1);
+    --grid-color-dark: rgba(6, 182, 212, 0.5);
+}
+
+.glowing-grid--orange {
+    --grid-color: rgba(249, 115, 22, 0.3);
+    --grid-color-light: rgba(249, 115, 22, 0.1);
+    --grid-color-dark: rgba(249, 115, 22, 0.5);
+}
+
+/* Speed Variations */
+.glowing-grid--slow {
+    animation-duration: 6s !important;
+}
+
+.glowing-grid--normal {
+    animation-duration: 3s !important;
+}
+
+.glowing-grid--fast {
+    animation-duration: 1.5s !important;
+}
+
+/* Animations */
+@keyframes gridPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.02);
+    }
+}
+
+@keyframes linesMove {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes dotsPulse {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes hexagonPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: rotate(0deg);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: rotate(180deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .glowing-grid--grid {
+        background-size: 30px 30px;
+    }
+
+    .glowing-grid--grid::before {
+        background-size: 15px 15px;
+    }
+
+    .glowing-grid--dots {
+        background-size: 25px 25px;
+    }
+
+    .glowing-grid--dots::before {
+        background-size: 40px 40px;
+    }
+
+    .glowing-grid--hexagon {
+        background-size: 40px 40px;
+    }
+}
+
+/* Hover effects for interactive elements */
+.glowing-grid-container:hover .glowing-grid {
+    animation-duration: 1s;
+    opacity: 0.8 !important;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .glowing-grid--blue {
+        --grid-color: rgba(96, 165, 250, 0.4);
+        --grid-color-light: rgba(96, 165, 250, 0.15);
+        --grid-color-dark: rgba(96, 165, 250, 0.6);
+    }
+
+    .glowing-grid--green {
+        --grid-color: rgba(74, 222, 128, 0.4);
+        --grid-color-light: rgba(74, 222, 128, 0.15);
+        --grid-color-dark: rgba(74, 222, 128, 0.6);
+    }
+
+    .glowing-grid--purple {
+        --grid-color: rgba(167, 139, 250, 0.4);
+        --grid-color-light: rgba(167, 139, 250, 0.15);
+        --grid-color-dark: rgba(167, 139, 250, 0.6);
+    }
+
+    .glowing-grid--cyan {
+        --grid-color: rgba(34, 211, 238, 0.4);
+        --grid-color-light: rgba(34, 211, 238, 0.15);
+        --grid-color-dark: rgba(34, 211, 238, 0.6);
+    }
+
+    .glowing-grid--orange {
+        --grid-color: rgba(251, 146, 60, 0.4);
+        --grid-color-light: rgba(251, 146, 60, 0.15);
+        --grid-color-dark: rgba(251, 146, 60, 0.6);
+    }
+}
