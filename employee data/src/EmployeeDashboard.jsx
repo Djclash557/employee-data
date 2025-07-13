@@ -10,6 +10,7 @@ import dayjs from 'dayjs';
 import { useNavigate } from "react-router-dom";
 import GlowingGrid from './components/GlowingGrid';
 import ScrollAnimations from './components/ScrollAnimations';
+import { API_BASE_URL } from "./config";
 
 const baseActivityData = [
     { name: 'Jan', value: 18 },
@@ -98,7 +99,7 @@ const EmployeeDashboard = () => {
             const startOfLastMonth = now.subtract(1, 'month').startOf('month').format('YYYY-MM-DD');
             const endOfLastMonth = now.startOf('month').format('YYYY-MM-DD');
             // Employees: all time
-            fetch(`http://localhost:5000/api/employees`, {
+            fetch(`${API_BASE_URL}/api/employees`, {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(res => res.json())
@@ -107,13 +108,13 @@ const EmployeeDashboard = () => {
                     setInternCount(data.filter(e => e.role && e.role.toLowerCase() === "intern").length);
                 });
             // Employees: last month (optional, you may want to keep this for trend)
-            fetch(`http://localhost:5000/api/employees?createdAfter=${startOfLastMonth}&createdBefore=${endOfLastMonth}`, {
+            fetch(`${API_BASE_URL}/api/employees?createdAfter=${startOfLastMonth}&createdBefore=${endOfLastMonth}`, {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(res => res.json())
                 .then(data => setEmployeeCountPrev(data.length));
             // Tasks: all active
-            fetch(`http://localhost:5000/api/tasks?status=active`, {
+            fetch(`${API_BASE_URL}/api/tasks?status=active`, {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(res => res.json())
@@ -121,13 +122,13 @@ const EmployeeDashboard = () => {
             // Tasks: last week
             const startOfLastWeek = now.subtract(1, 'week').startOf('week').format('YYYY-MM-DD');
             const endOfLastWeek = now.startOf('week').format('YYYY-MM-DD');
-            fetch(`http://localhost:5000/api/tasks?createdAfter=${startOfLastWeek}&createdBefore=${endOfLastWeek}&status=active`, {
+            fetch(`${API_BASE_URL}/api/tasks?createdAfter=${startOfLastWeek}&createdBefore=${endOfLastWeek}&status=active`, {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(res => res.json())
                 .then(data => setActiveTaskCountPrev(data.length));
             // Interns: last month
-            fetch(`http://localhost:5000/api/employees?createdAfter=${startOfLastMonth}&createdBefore=${endOfLastMonth}&role=intern`, {
+            fetch(`${API_BASE_URL}/api/employees?createdAfter=${startOfLastMonth}&createdBefore=${endOfLastMonth}&role=intern`, {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(res => res.json())

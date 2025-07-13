@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Attendance.css';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import dayjs from 'dayjs';
+import { API_BASE_URL } from "./config";
 
 const years = Array.from({ length: 50 }, (_, i) => 2000 + i); // 2000-2049
 const months = [
@@ -21,7 +22,7 @@ const Attendance = () => {
             if (!token) return;
             const month = selectedDate.month() + 1;
             const year = selectedDate.year();
-            const res = await fetch(`http://localhost:5000/api/attendance?month=${month}&year=${year}`, {
+            const res = await fetch(`${API_BASE_URL}/api/attendance?month=${month}&year=${year}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const data = await res.json();
@@ -42,7 +43,7 @@ const Attendance = () => {
         const token = localStorage.getItem("token");
         if (!token) return;
         const date = selectedDate.format('YYYY-MM-DD');
-        const res = await fetch('http://localhost:5000/api/attendance/checkin', {
+        const res = await fetch(`${API_BASE_URL}/api/attendance/checkin`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -67,7 +68,7 @@ const Attendance = () => {
         const token = localStorage.getItem("token");
         if (!token) return;
         const date = selectedDate.format('YYYY-MM-DD');
-        const res = await fetch('http://localhost:5000/api/attendance/checkout', {
+        const res = await fetch(`${API_BASE_URL}/api/attendance/checkout`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

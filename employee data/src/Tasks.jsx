@@ -3,6 +3,7 @@ import './Tasks.css';
 import { UserContext } from './UserContext';
 import GlowingGrid from './components/GlowingGrid';
 import ScrollAnimations from './components/ScrollAnimations';
+import { API_BASE_URL } from "./config";
 
 const Tasks = () => {
     const { user, loading } = useContext(UserContext);
@@ -19,7 +20,7 @@ const Tasks = () => {
         if (loading || !user) return;
         const fetchTasks = async () => {
             try {
-                const res = await fetch(`http://localhost:5000/api/tasks?userId=${user._id}`, {
+                const res = await fetch(`${API_BASE_URL}/api/tasks?userId=${user._id}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (!res.ok) throw new Error('Failed to fetch tasks');
@@ -36,7 +37,7 @@ const Tasks = () => {
 
     const handleAdd = async () => {
         if (newTask.trim() && user) {
-            const res = await fetch('http://localhost:5000/api/tasks', {
+            const res = await fetch(`${API_BASE_URL}/api/tasks`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -55,7 +56,7 @@ const Tasks = () => {
     };
 
     const handleDelete = async (id) => {
-        const res = await fetch(`http://localhost:5000/api/tasks/${id}`, {
+        const res = await fetch(`${API_BASE_URL}/api/tasks/${id}`, {
             method: 'DELETE',
             headers: { Authorization: `Bearer ${token}` }
         });
@@ -67,7 +68,7 @@ const Tasks = () => {
     const handleToggle = async (id) => {
         const task = tasks.find(t => t._id === id);
         if (!task) return;
-        const res = await fetch(`http://localhost:5000/api/tasks/${id}`, {
+        const res = await fetch(`${API_BASE_URL}/api/tasks/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -83,7 +84,7 @@ const Tasks = () => {
 
     const handleEdit = (id, title) => { setEditing(id); setEditValue(title); };
     const handleEditSave = async (id) => {
-        const res = await fetch(`http://localhost:5000/api/tasks/${id}`, {
+        const res = await fetch(`${API_BASE_URL}/api/tasks/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
