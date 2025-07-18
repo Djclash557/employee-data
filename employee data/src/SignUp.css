@@ -3,10 +3,22 @@
 
 /* You can override or add specific styles for SignUp here if needed */
 @media (max-width: 500px) {
-    .signup-btn {
-        font-size: 0.95rem !important;
-        padding: 8px 10px !important;
-    }
+  .signup-btn {
+    font-size: 0.95rem !important;
+    padding: 8px 10px !important;
+  }
+}
+
+/* Ensure scrollbars for SignUp page */
+html,
+body {
+  overflow: auto !important;
+}
+
+.login-bg,
+.login-main,
+.login-card {
+  overflow: auto !important;
 }
 
 .login-bg {
