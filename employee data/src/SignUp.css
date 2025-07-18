@@ -1,14 +1,3 @@
-/* SignUp page styles - copied and adapted from Login.css for consistency */
-@import url('./Login.css');
-
-/* You can override or add specific styles for SignUp here if needed */
-@media (max-width: 500px) {
-  .signup-btn {
-    font-size: 0.95rem !important;
-    padding: 8px 10px !important;
-  }
-}
-
 /* Ensure scrollbars for SignUp page */
 html,
 body {
@@ -21,13 +10,12 @@ body {
   overflow: auto !important;
 }
 
-.login-bg {
-  background: #fff !important;
-  min-height: 100vh !important;
-  min-width: 100vw !important;
-  max-width: 100vw !important;
-  max-height: 100vh !important;
-  overflow: hidden !important;
-  margin: 0 !important;
-  padding: 0 !important;
+@import url('./Login.css');
+
+/* You can override or add specific styles for SignUp here if needed */
+@media (max-width: 500px) {
+  .signup-btn {
+    font-size: 0.95rem !important;
+    padding: 8px 10px !important;
+  }
 }
